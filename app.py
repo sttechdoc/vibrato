@@ -10,7 +10,7 @@ def test_project():
 
 @app.route("/api")
 def get_data():
-    return tabulate(gd())
+    return tabulate(gd(), headers=["FName","LName", "Age", "DOB"], tablefmt="psql")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(8080), debug=False)
