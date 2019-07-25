@@ -6,11 +6,22 @@
       h3 {color:blue;}
     </style>
     <meta charset="utf-8">
-    <title>[-----TITLE-----]</title>
+    <title>[--ASSIGNMENT--]</title>
   </head>
   <body>
-    <h1 style="text-align:center"> WELCOME TO TEST PAGE! </h1>
-    <h3 style="text-align:center"> Click below button to fetch data. </h4>
-    <input type="button" name="dbdata" value="FETCH DATA">
+    <h1 style="text-align:center"> WELCOME TO MY VIBRATO ASSIGNMENT !!! </h1>
+    <h3 style="text-align:center"> Click below button to fetch sample data from the DB. </h4>
+      <div style="display: flex; flex-direction:column; align-items: center" class="flexContainer">
+        <input type="button" name="dbdata" value="FETCH EMPLOYEE CERTIFICATION DATA FROM MySQL DB!" class="mainButton"/>
+      </div>
   </body>
+<script>
+  var target = document.querySelector('.flexContainer')
+  document.querySelector('.mainButton').addEventListener('click',async ()=>{
+    const data = await fetch('/api')
+    const newSpan = document.createElement('span')
+    newSpan.innerText=await data.text()
+    target.appendChild(newSpan)
+  })
+</script>
 </html>
